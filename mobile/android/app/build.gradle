@@ -22,8 +22,8 @@ android {
         applicationId "com.donni"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode (findProperty("donniVersionCode") ?: "1").toInteger()
-        versionName findProperty("donniVersionName") ?: "1.0.0"
+        versionCode = Integer.parseInt((findProperty("donniVersionCode") ?: "1").toString())
+        versionName = (findProperty("donniVersionName") ?: "1.0.0").toString()
     }
     signingConfigs {
         debug {
