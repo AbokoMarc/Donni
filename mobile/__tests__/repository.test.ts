@@ -140,7 +140,7 @@ describe('actions composées', () => {
 });
 
 describe('LiveQuery', () => {
-  const tick = () => new Promise(resolve => setTimeout(resolve, 5));
+  const tick = () => new Promise<void>(resolve => setTimeout(resolve, 5));
 
   it('charge à l\'abonnement puis relit après chaque écriture ciblée', async () => {
     const {repo, store} = await setup();

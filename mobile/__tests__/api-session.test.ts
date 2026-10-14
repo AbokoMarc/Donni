@@ -95,7 +95,7 @@ describe('client HTTP', () => {
     const {fetchImpl, calls} = scriptedFetch(async call => {
       if (call.url.endsWith('/auth/refresh')) {
         refreshes += 1;
-        await new Promise(r => setTimeout(r, 10));
+        await new Promise<void>(r => setTimeout(r, 10));
         return {status: 200, body: {accessToken: 'a2', refreshToken: 'r2', expiresIn: 900, user: {}}};
       }
       return call.auth === 'Bearer a2' ? {status: 200, body: {ok: true}} : {status: 401, body: {code: 'token_expired'}};

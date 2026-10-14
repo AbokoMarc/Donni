@@ -20,9 +20,10 @@ export async function processNotificationEvent(event: Event): Promise<Notificati
   const notification = detail.notification;
   const reminderId = typeof notification?.data?.reminderId === 'string' ? notification.data.reminderId : null;
 
-  if (type === EventType.ACTION_PRESS && reminderId && isSmartAction(detail.pressAction?.id)) {
+  const actionId = detail.pressAction?.id;
+  if (type === EventType.ACTION_PRESS && reminderId && isSmartAction(actionId)) {
     const runtime = await getRuntime();
-    await applySmartAction(runtime.repo, reminderId, detail.pressAction.id);
+    await applySmartAction(runtime.repo, reminderId, actionId);
     await runtime.scheduler.refresh();
     if (notification?.id) {
       await notifee.cancelNotification(notification.id);

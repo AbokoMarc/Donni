@@ -26,7 +26,7 @@ async function setup(opts: {debounceMs?: number} = {}) {
   return {...ctx, repo, storage, server, service, expired};
 }
 
-const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms: number) => new Promise<void>(resolve => setTimeout(resolve, ms));
 
 async function activate(service: SyncService) {
   service.setSession('active');
