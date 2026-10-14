@@ -4,7 +4,8 @@
     "strict": true,
     "noUnusedLocals": true,
     "noImplicitReturns": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "types": ["react-native", "jest", "node"]
   },
   "include": ["src", "__tests__", "index.js"],
   "exclude": ["node_modules", "android", "ios"]
