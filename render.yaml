@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: donni-api
+    runtime: docker
+    rootDir: backend
+    plan: free
+    healthCheckPath: /actuator/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_REFRESH_PEPPER
+        generateValue: true
+      - key: SWAGGER_ENABLED
+        value: "false"
+      - key: APP_TIMEZONE
+        value: Africa/Douala
+      - key: WHATSAPP_MODE
+        value: disabled
+      - key: SPRING_PROFILES_ACTIVE
+        value: demo
+      - key: DEMO_PASSWORD
+        sync: false

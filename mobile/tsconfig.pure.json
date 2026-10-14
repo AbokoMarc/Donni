@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022"],
+    "strict": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noImplicitReturns": true,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": false,
+    "skipLibCheck": true,
+    "types": []
+  },
+  "include": [
+    "src/domain",
+    "src/sync/engine",
+    "src/sync/SyncService.ts",
+    "src/sync/SyncStorage.ts",
+    "__tests__/support/pure-globals.d.ts",
+    "src/db/sql.ts",
+    "src/db/entities.ts",
+    "src/db/schema.ts",
+    "src/db/migrations.ts",
+    "src/db/mapping.ts",
+    "src/db/bus.ts",
+    "src/db/store.ts",
+    "src/db/liveQuery.ts",
+    "src/db/queries.ts",
+    "src/api/client.ts",
+    "src/api/errors.ts",
+    "src/api/types.ts",
+    "src/auth/SessionService.ts",
+    "src/api/auth.ts",
+    "src/api/sync.ts",
+    "src/notifications/port.ts",
+    "src/notifications/ReminderScheduler.ts",
+    "src/notifications/smart.ts",
+    "src/services/effects.ts",
+    "src/db/repository.ts"
+  ]
+}

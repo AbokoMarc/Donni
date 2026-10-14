@@ -1,0 +1,16 @@
+donni:
+  auth-rate-limit-per-minute: 1000
+  jwt:
+    secret: test-secret-test-secret-test-secret-0123456789
+    refresh-pepper: test-pepper
+  dispatch-token: test-dispatch-token
+  whatsapp:
+    mode: mock
+    app-secret: test-app-secret
+    verify-token: test-verify-token
+
+springdoc:
+  api-docs:
+    enabled: false
+  swagger-ui:
+    enabled: false

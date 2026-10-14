@@ -1,0 +1,22 @@
+name: Envoi des rappels WhatsApp
+
+# Optionnel. Ne s'exécute que si la variable de dépôt DONNI_DISPATCH_URL est définie.
+# Les notifications locales du téléphone ne dépendent pas de ce workflow.
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+jobs:
+  dispatch:
+    if: ${{ vars.DONNI_DISPATCH_URL != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Appeler le serveur
+        env:
+          DISPATCH_URL: ${{ vars.DONNI_DISPATCH_URL }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
+          curl -fsS --retry 3 --max-time 60 -X POST \
+            -H "X-Dispatch-Token: $DISPATCH_TOKEN" \
+            "$DISPATCH_URL/internal/whatsapp/dispatch"
